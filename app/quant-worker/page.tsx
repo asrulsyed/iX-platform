@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { FaPlus } from "react-icons/fa6"
 
-const ixQuantWorker = () => {
+const QuantWorker = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-full gap-6 bg-black">
       <div className="p-3 text-[#999] border-2 border-borderColor rounded-xl bg-bgColor">
@@ -27,4 +27,4 @@ const ixQuantWorker = () => {
   )
 }
 
-export default ixQuantWorker
+export default QuantWorker

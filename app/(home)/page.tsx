@@ -4,7 +4,7 @@ import Card from "@/components/Card";
 import Filter from "@/components/Filter";
 import HomeComponent from "@/components/Home/HomeComponent";
 import List from "@/components/List";
-import homeMenu from "@/stack/homeMenu";
+import mainMenu from "@/stack/mainMenu";
 import stack from "@/stack/stack";
 import { useState } from "react";
 
@@ -41,7 +41,7 @@ export default function Home() {
         </div> */}
       <div className="flex justify-center flex-col items-center p-6 border border-[#444] rounded-2xl gap-6" >
         {
-          homeMenu.map((item, index) => <HomeComponent key={index} item={item} />)
+          mainMenu.map((item, index) => <HomeComponent key={index} item={item} />)
         }
       </div >
     </div>

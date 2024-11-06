@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import SubMenu from "@/components/SubMenu";
+import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -20,10 +19,7 @@ export default function RootLayout({
         className="antialiased"
       >
         <Header />
-        <SubMenu />
-        <main className="flex flex-col text-sm leading-6 min-h-[calc(100vh-281px)] items-center justify-center">
-          {children}
-        </main>
+        {children}
         <Footer />
       </body>
     </html>

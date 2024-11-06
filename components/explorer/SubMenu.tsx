@@ -1,7 +1,6 @@
 'use client'
 
 import subMenu from "@/stack/subMenu"
-import clsx from "clsx"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -15,12 +14,12 @@ const SubMenu = () => {
   const endPathString = endPath.toString().replaceAll('-', ' ');
 
   return (
-    <div className={`px-4 h-[46px] flex items-center bg-bgColor border-b border-borderColor sticky top-0 overflow-hidden z-50 text-sm`}>
+    <div className={`px-4 h-[46px] flex items-center bg-bgColor border-b border-borderColor sticky top-0 overflow-hidden z-50 text-sm `}>
       {
         subMenu.map((item, index) => (
           item === "Main" || item === "Quant Workers" ?
             <Link
-              href={`${rootString === '' ? `/${item.toLowerCase().replaceAll(' ', "-")}` : `/${rootString}/${item.toLowerCase().replaceAll(' ', '-')}` }`}
+              href={`/${rootString}/${item.toLowerCase().replaceAll(' ', '-')}`}
               key={index}
               className={`${endPathString === item.toLowerCase() ? 'border-fontHover text-fontHover' : 'border-transparent text-fontColor'} 
               border-b-2 hover:border-fontHover h-[46px] flex items-center justify-center transition-colors duration-300 ease-in-out`}

@@ -6,22 +6,18 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiMenuAlt4 } from "react-icons/hi";
-import { HiMiniChevronUpDown } from "react-icons/hi2";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { LuInbox, LuLogOut, LuMoonStar, LuTriangle } from "react-icons/lu";
 import { MdClose } from "react-icons/md";
 import { RiSaveFill, RiSunLine } from "react-icons/ri";
-import NotificationModal from "./NotificationModal";
-import UserModal from "./UserModal";
-import { useRouter } from "next/navigation";
+import NotificationModal from "../NotificationModal";
+import UserModal from "../UserModal";
+import HeaderMainMenu from "./HeaderMainMenu";
 
 const Header = () => {
-  const [selectedItem, setSelectedItem] = useState<string>('iX Platform');
-  const [headerLogo, setHeaderLogo] = useState<boolean>(false);
 
   const [notification, setNotification] = useState<boolean>(false);
   const notificationRef = useRef<HTMLDivElement>(null);
-  const notificationButtonRef = useRef<HTMLDivElement>(null);
   const [notificationModal, setNotificationModal] = useState<boolean>(false);
 
   const [setting, setSetting] = useState<boolean>(false);
@@ -29,15 +25,6 @@ const Header = () => {
   const [userModal, setUserModal] = useState<boolean>(false);
 
   const [theme, setTheme] = useState<number>(0);
-
-  const router = useRouter();
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const target = event.target as HTMLDivElement
-    setSelectedItem(target.innerText);
-    const link = '/' + target.innerText.replaceAll(" ", "-").toLowerCase();
-    router.push(link)    
-  }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -63,62 +50,7 @@ const Header = () => {
   return (
     <header className="flex items-center h-16 px-4 sm:px-6 bg-bgColor">
       <nav className="flex items-center justify-between grow">
-        <div
-          onMouseLeave={() => setHeaderLogo(false)}
-          onMouseEnter={() => setHeaderLogo(true)}
-          onClick={() => setHeaderLogo(!headerLogo)}
-          className="relative group"
-        >
-          <div
-            className={clsx("flex items-center justify-start gap-2 text-fontColor border rounded-xl px-3 h-9 text-sm font-semibold transition-colors duration-300 ease-in-out font-pavelt", {
-              'border-[#444]': headerLogo === true,
-              'border-borderColor': headerLogo === false
-            })}
-          >
-            <Image
-              src="/avatar.svg"
-              width={18}
-              height={18}
-              className="rounded-full w-[18px] h-[18px]"
-              alt="User avatar"
-            />
-            <span className="text-nowrap">{selectedItem}</span>
-            <HiMiniChevronUpDown className="w-[20px] h-auto text-fontColor" />
-          </div>
-          <div className={clsx("group-hover:opacity-100 absolute bg-black max-w-[400px] min-w-fit w-[calc(100vw-60px)] text-fontHover z-[51] left-0 transition-opacity duration-300 ease-in-out font-pavelt", {
-            'invisible opacity-0': headerLogo === false,
-            'visible opacity-100': headerLogo === true
-          })}>
-            <div className="pt-3 bg-bgColor"></div>
-            <div className="grid grid-cols-1 p-3 border border-[#444] rounded-lg gap-3">
-              <button 
-                onClick={handleClick}
-                className="flex w-full bg-bgColor h-[80px] border-2 border-[#1e1e1e] hover:border-[#444] rounded-[6px] p-3 transition-colors duration-300 ease-in-out">
-                iX Quant Worker
-              </button>
-              <button 
-                onClick={handleClick}
-                className="flex w-full bg-bgColor h-[80px] border-2 border-[#1e1e1e] hover:border-[#444] rounded-[6px] p-3 transition-colors duration-300 ease-in-out">
-                iX Cloud
-              </button>
-              <button 
-                onClick={handleClick}
-                className="flex w-full bg-bgColor h-[80px] border-2 border-[#1e1e1e] hover:border-[#444] rounded-[6px] p-3 transition-colors duration-300 ease-in-out">
-                iX Explorer
-              </button>
-              <button 
-                onClick={handleClick}
-                className="flex w-full bg-bgColor h-[80px] border-2 border-[#1e1e1e] hover:border-[#444] rounded-[6px] p-3 transition-colors duration-300 ease-in-out">
-                iX investing
-              </button>
-              <button 
-                onClick={handleClick}
-                className="flex w-full bg-bgColor h-[80px] border-2 border-[#1e1e1e] hover:border-[#444] rounded-[6px] p-3 transition-colors duration-300 ease-in-out">
-                iX community
-              </button>
-            </div>
-          </div>
-        </div>
+        <HeaderMainMenu />
         <div className="flex items-center gap-8">
           <ul className="items-center hidden gap-4 text-sm leading-5 text-fontColor lg:flex">
             <li className="flex items-center h-8 px-3 border rounded-md cursor-auto hover:text-fontHover hover:bg-bgHover border-borderColor">Feedback</li>

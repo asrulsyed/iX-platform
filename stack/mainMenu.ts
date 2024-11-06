@@ -1,4 +1,4 @@
-const homeMenu = [
+const mainMenu = [
   'iX Quant Worker',
   'iX Cloud',
   'iX Explorer',
@@ -6,4 +6,4 @@ const homeMenu = [
   'iX community',
 ]
 
-export default homeMenu
+export default mainMenu

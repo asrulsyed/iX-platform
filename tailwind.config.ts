@@ -9,10 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        fontColor: "var(--color-font-color)",
+				fontHover: "var(--color-font-color-hover)",
+				bgColor: "var(--color-background-color)",
+				bgHover: "var(--color-background-color-hover)",
+				borderColor: "var(--color-border-color)",
       },
+      fontFamily: {
+        pavelt: ['Pavelt', 'san-serif']
+      }
     },
+    screens: {
+  		sm: '600px',
+  		md: '750px',
+  		lg: '960px',
+  		xl: '1100px'
+  	}
   },
   plugins: [],
 };

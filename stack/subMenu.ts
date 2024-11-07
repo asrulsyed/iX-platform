@@ -1,4 +1,4 @@
-const subMenu = [
+export const explorerSubMenu = [
   'Main',
   'Quant Workers',
   'Cloud',
@@ -8,4 +8,11 @@ const subMenu = [
   'Rewards',
 ]
 
-export default subMenu
+export const quantWorkerSubMenu = [
+  'Quant Worker',
+  'Earning',
+  'Staking',
+  'Cloud',
+  'Storage',
+  'EDITH AI',
+]

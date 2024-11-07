@@ -1,6 +1,6 @@
 'use client'
 
-import {explorerSubMenu as subMenu} from "@/stack/subMenu"
+import {quantWorkerSubMenu as subMenu} from "@/stack/subMenu"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -17,7 +17,7 @@ const SubMenu = () => {
     <div className={`px-4 h-[46px] flex items-center bg-bgColor border-b border-borderColor sticky top-0 overflow-hidden z-50 text-sm `}>
       {
         subMenu.map((item, index) => (
-          item === "Main" || item === "Quant Workers" ?
+          item === "Earning" || item === "Quant Worker" ?
             <Link
               href={`/${rootString}/${item.toLowerCase().replaceAll(' ', '-')}`}
               key={index}

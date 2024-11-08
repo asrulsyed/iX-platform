@@ -10,8 +10,8 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import { LuInbox, LuLogOut, LuMoonStar, LuTriangle } from "react-icons/lu";
 import { MdClose } from "react-icons/md";
 import { RiSaveFill, RiSunLine } from "react-icons/ri";
-import NotificationModal from "../NotificationModal";
-import UserModal from "../UserModal";
+import NotificationModal from "./NotificationModal";
+import UserModal from "./UserModal";
 import HeaderMainMenu from "./HeaderMainMenu";
 
 const Header = () => {

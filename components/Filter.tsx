@@ -24,7 +24,7 @@ const Filter = ({ setAlign, align }: any) => {
   });
 
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 w-full">
       <div className="grow bg-bgColor flex items-center h-10 justify-between rounded-md border border-borderColor  text-fontColor pr-2.5">
         <div className="flex items-center justify-center w-10 h-10">
           <FaSearch />

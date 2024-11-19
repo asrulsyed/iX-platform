@@ -21,7 +21,7 @@ const Page = () => {
   const currentProject = projects.find((item: any) => item.name.trim().replaceAll(' ', '-').toLowerCase() === params.slug)
 
   return (
-    <div className="max-w-[1280px] w-full grid xl:grid-cols-4 py-10 gap-5 px-5">
+    <div className="max-w-[1280px] w-full grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 py-10 gap-5 px-5">
       <AccountBalanceChart />
       <ProjectInfo />
       <DetailInfo item="Average Win" />

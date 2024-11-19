@@ -38,7 +38,7 @@ const Calendar = ({ setSelectedDay }: any) => {
         }}
       >
         <p className={`${isToday ? 'text-black' : 'text-fontHover'}`}>{(index + 1) < 10 ? `0${index + 1}` : (index + 1)}</p>
-        <p className="text-2xl font-bold">
+        <p className="text-lg lg:text-2xl font-bold whitespace-nowrap">
           {isFutureDate ? `${data?.profit || ''}` : `$ ${data?.profit || '0.0'}`}
         </p>
         <FaCheck className={`${selectedButton === index ? 'block' : 'hidden'} absolute right-0 top-0 -translate-y-1 translate-x-1 bg-[#0033FF] w-5 h-5 rounded-full text-white p-1`} />
@@ -47,8 +47,8 @@ const Calendar = ({ setSelectedDay }: any) => {
   }
 
   return (
-    <div className="col-span-3 bg-bgColor border border-borderColor text-fontColor rounded-lg px-10 py-9 flex flex-col">
-      <div className="flex justify-between items-center mb-5">
+    <div className="col-span-1 sm:col-span-3 bg-bgColor border border-borderColor text-fontColor rounded-lg px-10 py-9 flex flex-col overflow-x-auto">
+      <div className="flex justify-between items-center mb-5  min-w-[700px]">
         <button
           onClick={() => setStateCalendar((prev) => (prev + 1) > 3 ? 0 : prev + 1)}
           className="text-xl font-bold text-fontHover pl-5"
@@ -88,7 +88,7 @@ const Calendar = ({ setSelectedDay }: any) => {
       {
         stateCalendar === 0 ?
           <>
-            <div className="grid grid-cols-7 gap-2 mb-2">
+            <div className="grid grid-cols-7 gap-2 mb-2  min-w-[700px]">
               <div className="h-10 border border-borderColor rounded text-fontColor text-sm font-medium pl-5 flex items-center justify-start">
                 SUN
               </div>
@@ -111,12 +111,12 @@ const Calendar = ({ setSelectedDay }: any) => {
                 SAT
               </div>
             </div>
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7 gap-2  min-w-[700px]">
               {generateDays()}
             </div>
           </>
           : stateCalendar === 1 ?
-            <div className="flex-1 flex items-stretch w-full my-5">
+            <div className="flex-1 flex items-stretch w-full my-5  min-w-[700px]">
               <div className="grid grid-cols-4 gap-5 w-full">
                 {
                   months.map((month, index) => <button key={index}
@@ -133,7 +133,7 @@ const Calendar = ({ setSelectedDay }: any) => {
               </div>
             </div>
             : stateCalendar === 2 ?
-              <div className="flex-1 flex items-stretch w-full my-5">
+              <div className="flex-1 flex items-stretch w-full my-5 min-w-[700px]">
                 <div className="grid grid-cols-4 gap-5 w-full">
                   {
                     Array.from({ length: 12 }, (_, index) => {
@@ -157,7 +157,7 @@ const Calendar = ({ setSelectedDay }: any) => {
                 </div>
               </div>
               :
-              <div className="flex-1 flex items-stretch w-full my-5">
+              <div className="flex-1 flex items-stretch w-full my-5 min-w-[700px]">
                 <div className="grid grid-cols-4 gap-5 w-full">
                   {
                     Array.from({ length: 12 }, (_, index) => {

@@ -5,9 +5,9 @@ const SummaryDay = ({ selectedDay }: any) => {
   const data = dailyStock.find((item: any) => item.date === selectedDay)
 
   return (
-    <div className="bg-bgColor border border-borderColor rounded-lg px-6 py-9 text-fontColor">
+    <div className="bg-bgColor border border-borderColor rounded-lg px-6 py-9 text-fontColor xl:col-span-1 sm:col-span-3 col-span-1">
       <h3 className="text-xl font-bold text-fontHover mb-5">Summary for the day</h3>
-      <div className="flex-1 grid grid-cols-2 gap-3 ">
+      <div className="flex-1 grid xl:grid-cols-2 sm:grid-cols-4 grid-cols-2 gap-3 ">
         <div className="border border-borderColor bg-black p-2 rounded">
           <p>Date</p>
           <p className="text-lg text-fontHover">{moment(selectedDay).format('YYYY/MM/DD')}</p>

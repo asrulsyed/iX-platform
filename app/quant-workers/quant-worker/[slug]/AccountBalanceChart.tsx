@@ -45,8 +45,8 @@ const AccountBalanceChart = () => {
   }
 
   return (
-    <div className="py-9 px-16 bg-bgColor border border-borderColor rounded-xl col-span-3 overflow-x-auto">
-      <div className="flex items-center justify-between mb-10 min-w-[700px]">
+    <div className="py-9 px-16 bg-bgColor border border-borderColor rounded-xl col-span-1 sm:col-span-3 overflow-x-auto">
+      <div className="flex items-center justify-between mb-10">
         <h3 className="text-xl text-fontHover font-bold">Account Balance</h3>
         <select
           value={period}
@@ -58,7 +58,7 @@ const AccountBalanceChart = () => {
           <option value={90} className="bg-bgColor">3 Months</option>
         </select>
       </div>
-      <ResponsiveContainer width="100%" height={450}>
+      <ResponsiveContainer width="100%" height={450} minWidth={700}>
         <LineChart
           width={500}
           height={300}

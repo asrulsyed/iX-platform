@@ -1,6 +1,6 @@
 const TradingJournal = () => {
   return (
-    <div className="col-span-3 xl:col-span-4 bg-bgColor border border-borderColor py-9 px-6 rounded-xl">
+    <div className="col-span-1 sm:col-span-3 xl:col-span-4 bg-bgColor border border-borderColor py-9 px-6 rounded-xl">
       <h3 className="text-fontHover text-xl font-bold mb-8">Trading Journal</h3>
       <div className="w-full rounded-lg overflow-x-auto">
         <table className="bg-black rounded-lg text-left w-full min-w-[1150px]">

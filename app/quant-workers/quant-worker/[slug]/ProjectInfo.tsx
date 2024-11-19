@@ -1,6 +1,6 @@
 const ProjectInfo = () => {
   return (
-    <div className="row-span-4 xl:row-span-1 border border-borderColor bg-bgColor rounded-xl py-9 text-fontHover px-6 flex flex-col pb-12">
+    <div className="col-span-1 row-span-1 sm:col-span-2 md:col-span-1 sm:row-span-5 md:row-span-4 xl:row-span-1 border border-borderColor bg-bgColor rounded-xl py-9 text-fontHover px-6 flex flex-col pb-12">
       <h3 className="text-xl font-bold text-fontHover mb-8">Information</h3>
       <div className="flex-1 flex flex-col justify-between">
         <div className="flex justify-between items-center">

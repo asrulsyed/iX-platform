@@ -16,20 +16,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #000000;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #000000;
-  }
-}
-
 body {
-  color: var(--foreground);
   background: #000000;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -47,7 +34,11 @@ body {
     --color-background-color: #0a0a0a;
     --color-background-color-hover: #1f1f1f;
     --color-border-color: #ffffff24;
-    
+    --header-height: 64px;
+    --footer-height: 160px;
+  }
+  :root {
+    --radius: 0.5rem;
   }
 }
 

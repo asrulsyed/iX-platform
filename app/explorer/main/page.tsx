@@ -1,11 +1,11 @@
 'use client'
 
 import { Area, AreaChart, Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
-import {data1} from "@/stack/data"
+import { data1 } from "@/stack/stack"
 
 const ExplorerMain = () => {
   return (
-    <div className="flex flex-col flex-1 gap-5 lg:gap-8 max-w-[1280px] w-full lg:pb-12 lg:pt-16 py-5 lg:py-10">
+    <div className="flex flex-col flex-1 gap-5 lg:gap-8 max-w-[1280px] w-full lg:pb-12 lg:pt-16 py-5 lg:py-10 mt-[var(--header-height)]">
       <div className="grid w-full grid-cols-1 gap-4 px-6 xl:grid-cols-5">
         <div className="flex flex-col gap-4 p-6 border rounded-lg xl:col-span-5 border-borderColor bg-bgColor" >
           <div className="flex justify-start">

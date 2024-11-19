@@ -1,6 +1,6 @@
 'use client'
 
-import stack from "@/stack/projects";
+import { projects } from "@/stack/stack";
 import { createContext, useContext, useState } from "react";
 
 const ProjectsContext = createContext<ProjectsContextTypes | undefined>(undefined); // Create the context
@@ -9,7 +9,7 @@ interface ProjectsProviderProps {
   children: React.ReactNode
 }
 
-const initialStack: Project[] = Array.isArray(stack) ? stack : [];
+const initialStack: Project[] = Array.isArray(projects) ? projects : [];
 
 export const ProjectsProvider: React.FC<ProjectsProviderProps> = ({ children }) => {
   const [projects, setProjects] = useState<Project[]>(initialStack)

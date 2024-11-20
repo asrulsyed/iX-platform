@@ -6,6 +6,9 @@ import Footer from "@/components/footer";
 export const metadata: Metadata = {
   title: "iX Platform",
   description: "iX Platform",
+  icons: {
+    icon: '/favicon.ico'
+  }
 };
 
 export default function RootLayout({

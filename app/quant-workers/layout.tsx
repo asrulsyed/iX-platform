@@ -1,3 +1,4 @@
+import SubMenu from "@/components/header/SubMenu"
 import { ProjectsProvider } from "@/lib/utils/context/ProjectsContext"
 
 const QuantWorkerLayout = ({
@@ -7,7 +8,8 @@ const QuantWorkerLayout = ({
 }) => {
   return (
     <ProjectsProvider>
-      <main className="flex flex-col text-sm leading-6 min-h-[calc(100vh-var(--footer-height))] items-center pt-[var(--header-height)]">
+      <SubMenu />
+      <main className="flex flex-col text-sm leading-6 min-h-[calc(100vh-271px)] items-center ">
         {children}
       </main>
     </ProjectsProvider>

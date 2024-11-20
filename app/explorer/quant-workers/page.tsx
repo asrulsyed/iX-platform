@@ -6,7 +6,7 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 const ExplorerQuantWorkers = () => {
 
   return (
-    <div className="flex flex-col flex-1 gap-5 lg:gap-8 max-w-[1280px] w-full lg:pb-12 lg:pt-16 py-5 lg:py-10 mt-[var(--header-height)]">
+    <div className="flex flex-col flex-1 gap-5 lg:gap-8 max-w-[1280px] w-full lg:pb-12 lg:pt-16 py-5 lg:py-10">
       <div className="grid w-full grid-cols-1 gap-4 px-6 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4 p-6 border rounded-lg border-borderColor bg-bgColor sm:col-span-2" >
           <p className="text-xs leading-4 text-green-500">Total Worker Earning</p>

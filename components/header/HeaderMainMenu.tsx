@@ -27,9 +27,21 @@ const HeaderMainMenu = () => {
         setHeaderMainMenu(false);
       }
     }
+
+    const handleScroll = () => {
+      if (headerMainMenu) {
+        setHeaderMainMenu(false);
+      }
+    }
+
     document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick)
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [headerMainMenu])
 
   return (
     <div
@@ -63,7 +75,7 @@ const HeaderMainMenu = () => {
         <FaChevronDown className={`w-[12px] h-auto text-fontColor font-pavelt ${headerMainMenu === true ? 'rotate-180' : ''} transition-transform duration-200 ease-in-out`} />
       </div>
       <div className={`${headerMainMenu === true ? ' translate-x-0' : '-translate-x-full'}
-        fixed inset-y-0 z-20 left-0 w-full top-[var(--header-height)] min-h-[calc(100vh-var(--footer-height)-var(--header-height))] origin-left bg-bgColor  sm:p-6 p-4 border-r border-borderColor max-w-[320px] min-w-fit font-pavelt text-fontHover transition-all duration-300 ease-out`}
+        fixed inset-y-0 z-20 left-0 w-full top-[var(--header-height)] min-h-[calc(100vh-var(--footer-height)-var(--header-height))] origin-left bg-bgColor  sm:p-6 p-4 sm:pt-[80px] pt-[62px] border-r border-borderColor max-w-[320px] min-w-fit font-pavelt text-fontHover transition-all duration-300 ease-out`}
       >
         <Accordion type="single" collapsible onClick={handleAccordionClick} className="w-full grid gap-3">
           {
@@ -71,44 +83,67 @@ const HeaderMainMenu = () => {
               const main = item.mainMenu.split(' ')
               main.splice(0, 1);
               const mainString = main.join('-').toLowerCase();
+              const hasSubMenuItems = item.subMenu.some(subItem => subItem.status === 'open');
 
               return <AccordionItem key={index} value={`${item} + ${index}`} className="border-none">
-                <AccordionTrigger 
-                className={`${rootPath === mainString ? 'bg-bgHover text-fontHover' : 'text-fontColor'}
+                {
+                  hasSubMenuItems ? (
+                    <AccordionTrigger
+                      className={`${rootPath === mainString ? 'bg-bgHover text-fontHover' : 'text-fontColor'}
                   h-10 flex items-center rounded-md hover:text-fontHover transition-colors duration-300 ease-out hover:bg-bgHover border border-borderColor hover:border-[#444] px-4 hover:no-underline`}
-                >
-                  {item.mainMenu}
-                </AccordionTrigger>
-                <AccordionContent className="pb-0 pt-2">
-                  {
-                    item.subMenu.map((subItem, subIndex) => {
-                      const sub = subItem.subMenu.split(' ');
-                      const subString = sub.join('-').toLowerCase();
+                    >
+                      {item.mainMenu}
+                    </AccordionTrigger>
+                  )
+                    : (
+                      <Link
+                        href={`/${mainString}`}
+                        key={index}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setHeaderMainMenu(false)
+                        }}
+                        className={`${rootPath === mainString ? 'bg-bgHover text-fontHover' : ''}
+                        h-10 px-6 text-fontColor hover:text-fontHover hover:bg-bgHover flex items-center rounded-md transition-colors duration-150 ease-linear border border-borderColor`}
+                      >
+                        {item.mainMenu}
+                      </Link>
+                    )
+                }
+                {
+                  hasSubMenuItems && (
+                    <AccordionContent className="pb-0 pt-2">
+                      {
+                        item.subMenu.map((subItem, subIndex) => {
+                          const sub = subItem.subMenu.split(' ');
+                          const subString = sub.join('-').toLowerCase();
 
-                      return subItem.status === 'open' ?
-                        <Link
-                          href={`/${mainString}/${subString}`}
-                          key={subIndex}
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            setHeaderMainMenu(false)
-                          }}
-                          className={`${subPath === subString ? 'bg-bgHover text-fontHover' : ''}
+                          return subItem.status === 'open' ?
+                            <Link
+                              href={`/${mainString}/${subString}`}
+                              key={subIndex}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                setHeaderMainMenu(false)
+                              }}
+                              className={`${subPath === subString ? 'bg-bgHover text-fontHover' : ''}
                             h-10 px-6 text-fontColor hover:text-fontHover hover:bg-bgHover flex items-center rounded-md transition-colors duration-150 ease-linear`}
-                        >
-                          {subItem.subMenu}
-                        </Link>
-                        : <button
-                          key={subIndex}
-                          type="button"
-                          disabled
-                          className="h-10 px-6 text-fontColor flex items-center transition-colors duration-150 ease-out"
-                        >
-                          {subItem.subMenu}
-                        </button>
-                    })
-                  }
-                </AccordionContent>
+                            >
+                              {subItem.subMenu}
+                            </Link>
+                            : <button
+                              key={subIndex}
+                              type="button"
+                              disabled
+                              className="h-10 px-6 text-fontColor flex items-center transition-colors duration-150 ease-out"
+                            >
+                              {subItem.subMenu}
+                            </button>
+                        })
+                      }
+                    </AccordionContent>
+                  )
+                }
               </AccordionItem>
             })
           }

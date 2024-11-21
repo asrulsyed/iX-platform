@@ -49,7 +49,7 @@ export const menu = [
       },
       {
         subMenu: 'Cloud',
-        status: 'close',
+        status: 'open',
       },
       {
         subMenu: 'Community',
